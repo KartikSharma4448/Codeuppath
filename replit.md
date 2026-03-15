@@ -60,6 +60,11 @@ A full-stack web platform for students — featuring hackathon listings, learnin
 
 Tables: `waitlist`, `profiles`, `hackathons`, `learning_resources`, `blog_posts`, `contact_requests`, `products`, `site_contents`
 
+## Replit Configuration
+
+- Migrated from Vercel to Replit. `vite.config.ts` sets `host: "0.0.0.0"`, `port: 5000`, and `allowedHosts: true` for Replit's proxied preview.
+- Workflow: `Start application` runs `npm run dev` and waits on port 5000.
+
 ## Notes
 
 - Supabase is used only for authentication; all application data lives in Replit's PostgreSQL
