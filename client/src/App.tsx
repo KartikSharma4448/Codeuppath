@@ -43,7 +43,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/login" component={Login} />
       <Route path="/profile">
-        <ProtectedRoute requireProfileComplete={false}>
+        <ProtectedRoute>
           <Profile />
         </ProtectedRoute>
       </Route>

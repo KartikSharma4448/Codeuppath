@@ -2,11 +2,11 @@ import { Link } from "wouter";
 import { Terminal, Github, Twitter, Disc } from "lucide-react";
 import logoUrl from "@assets/logo.png";
 import { useAuth } from "@/hooks/use-auth";
-import { navItems, privateNav, profileNav } from "@/lib/site";
+import { navItems, privateNav } from "@/lib/site";
 
 export function Footer() {
-  const { isAuthenticated, isProfileComplete } = useAuth();
-  const items = isAuthenticated ? (isProfileComplete ? privateNav : profileNav) : navItems;
+  const { isAuthenticated } = useAuth();
+  const items = isAuthenticated ? privateNav : navItems;
 
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-black/50 pb-10 pt-20">

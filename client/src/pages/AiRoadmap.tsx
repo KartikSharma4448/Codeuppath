@@ -3,22 +3,21 @@ import { Bot, Route, Sparkles } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useAuth } from "@/hooks/use-auth";
 
 export default function AiRoadmap() {
-  const { user, resumeScore } = useAuth();
   const [goal, setGoal] = useState("");
   const [experience, setExperience] = useState("");
+  const [skills, setSkills] = useState("");
   const [generated, setGenerated] = useState(false);
 
   const roadmap = useMemo(
     () => [
-      `Week 1-2: Strengthen ${user?.profile?.role || "core role"} fundamentals and polish resume keywords.`,
-      `Week 3-4: Complete one free or cheap certificate aligned with ${goal || "your chosen goal"}.`,
-      `Week 5-6: Build one project and apply to 2 hackathons matching your ${experience || "current"} experience level.`,
+      `Week 1-2: Strengthen fundamentals aligned with your goal — ${goal || "your chosen goal"}.`,
+      `Week 3-4: Complete one free or affordable certificate matching your ${experience || "current"} experience level.`,
+      `Week 5-6: Build one project and apply to 2 hackathons relevant to your ${skills || "skills"}.`,
       `Week 7+: Keep improving through blog updates, feedback loops, and AI-based roadmap adjustments.`,
     ],
-    [experience, goal, user?.profile?.role],
+    [experience, goal, skills],
   );
 
   const handleGenerate = (event: FormEvent<HTMLFormElement>) => {
@@ -31,11 +30,11 @@ export default function AiRoadmap() {
       badge="CodeUpPath AI roadmap builder"
       title="CodeUpPath"
       subtitle="AI learning roadmap"
-      description="Generate a personalized learning roadmap based on your goals, current experience, and resume score. Get a practical step-by-step path to accelerate your tech career."
+      description="Generate a personalized learning roadmap based on your goals, current experience, and skills. Get a practical step-by-step path to accelerate your tech career."
       metrics={[
         { label: "AI", value: "Assist" },
-        { label: "Score", value: `${resumeScore}%` },
-        { label: "Roadmap", value: "Custom" },
+        { label: "Mode", value: "Custom" },
+        { label: "Roadmap", value: "4 weeks" },
       ]}
       ctaHref="#ai-content"
       ctaLabel="Build Roadmap"
@@ -48,9 +47,9 @@ export default function AiRoadmap() {
             </div>
             <h2 className="text-3xl text-white">Generate easy roadmap</h2>
             <form onSubmit={handleGenerate} className="mt-8 space-y-5">
-              <Input value={goal} onChange={(event) => setGoal(event.target.value)} placeholder="Your goal: AI engineer, frontend job, hackathon win..." className="h-12 rounded-xl border-white/10 bg-white/5 text-white" />
-              <Input value={experience} onChange={(event) => setExperience(event.target.value)} placeholder="Experience level: beginner, intermediate..." className="h-12 rounded-xl border-white/10 bg-white/5 text-white" />
-              <Textarea defaultValue={user?.profile?.skills || ""} placeholder="Current skills" className="min-h-[140px] rounded-xl border-white/10 bg-white/5 text-white" />
+              <Input value={goal} onChange={(e) => setGoal(e.target.value)} placeholder="Your goal: AI engineer, frontend job, hackathon win..." className="h-12 rounded-xl border-white/10 bg-white/5 text-white" />
+              <Input value={experience} onChange={(e) => setExperience(e.target.value)} placeholder="Experience level: beginner, intermediate..." className="h-12 rounded-xl border-white/10 bg-white/5 text-white" />
+              <Textarea value={skills} onChange={(e) => setSkills(e.target.value)} placeholder="Your current skills: React, Python, ML..." className="min-h-[140px] rounded-xl border-white/10 bg-white/5 text-white" />
               <button type="submit" className="rounded-xl bg-cyan-500 px-6 py-3 font-display font-semibold text-slate-950 transition-all hover:bg-cyan-400">
                 Generate Roadmap
               </button>
@@ -69,9 +68,6 @@ export default function AiRoadmap() {
                     {item}
                   </div>
                 ))}
-                <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 p-5 text-cyan-100">
-                  AI recommendation: Your resume score is {resumeScore}%. To reach 85%+, prioritize adding project proof and completing relevant certifications.
-                </div>
               </div>
             ) : (
               <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 text-muted-foreground">

@@ -164,7 +164,7 @@ function AdminTopbar({ pageTitle, searchValue = "", onSearchChange, onMobileMenu
   const { toast } = useToast();
   const [, navigate] = useLocation();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
-  const profileLabel = user?.profile?.fullName || user?.fullName || user?.email || "Admin";
+  const profileLabel = user?.fullName || user?.email || "Admin";
 
   const handleLogout = async () => {
     if (isLoggingOut) {

@@ -19,13 +19,13 @@ import {
 export function Navbar() {
   const [location, navigate] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuthenticated, isProfileComplete, logout, user, isAuthLoading } = useAuth();
+  const { isAuthenticated, logout, user, isAuthLoading } = useAuth();
   const { toast } = useToast();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const items = isAuthLoading ? [] : isAuthenticated ? privateNav : navItems;
-  const profileLabel = user?.profile?.fullName || user?.fullName || user?.email || "Profile";
+  const profileLabel = user?.fullName || user?.email || "Profile";
   const avatarFallback = useMemo(() => {
-    const source = user?.profile?.fullName?.trim() || user?.fullName?.trim() || user?.email?.trim() || "CU";
+    const source = user?.fullName?.trim() || user?.email?.trim() || "CU";
     const parts = source.split(/\s+/).filter(Boolean);
 
     if (parts.length >= 2) {
@@ -33,7 +33,7 @@ export function Navbar() {
     }
 
     return source.slice(0, 2).toUpperCase();
-  }, [user?.email, user?.fullName, user?.profile?.fullName]);
+  }, [user?.email, user?.fullName]);
 
   return (
     <motion.header

@@ -91,11 +91,11 @@ export default function Login() {
               <span className="block text-gradient">your dashboard</span>
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              Sign in to access your personalized dashboard, track your profile strength, discover hackathons, and unlock curated learning resources.
+              Sign in to access your dashboard, discover hackathons, explore learning resources, and build your personalized AI roadmap.
             </p>
             <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-white/5 p-5 text-sm text-slate-300">
               <p className="text-xs uppercase tracking-[0.3em] text-cyan-400 mb-3">New to CodeUpPath?</p>
-              After signing in, you'll complete your profile to unlock your full dashboard and personalized opportunity feed.
+              Sign in with Google and you'll be taken directly to your dashboard — no extra steps needed.
             </div>
           </div>
 
