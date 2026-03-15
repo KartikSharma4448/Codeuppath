@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/hooks/use-auth";
 import { useToast } from "@/hooks/use-toast";
-import logoUrl from "@assets/0001-189647679367628502_1773166458634.png";
+import logoUrl from "@assets/logo.png";
 import {
   BarChart3,
   BookOpen,

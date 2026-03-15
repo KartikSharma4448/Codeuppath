@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { ChevronDown, LogOut, Menu, User, X } from "lucide-react";
-import logoUrl from "@assets/0001-189647679367628502_1773166458634.png";
+import logoUrl from "@assets/logo.png";
 import { useAuth } from "@/hooks/use-auth";
 import { navItems, privateNav } from "@/lib/site";
 import { useToast } from "@/hooks/use-toast";
