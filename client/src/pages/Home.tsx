@@ -83,7 +83,7 @@ export default function Home() {
             >
               {isAuthenticated ? (
                 <a
-                  href={isAuthenticated ? "/profile" : "/login"}
+                  href={isAuthenticated ? "/dashboard" : "/login"}
                   className="rounded-2xl bg-cyan-500 px-8 py-4 font-display font-semibold text-slate-950 transition-all hover:bg-cyan-400 hover:shadow-[0_0_24px_rgba(34,211,238,0.35)]"
                 >
                   Continue to Platform
